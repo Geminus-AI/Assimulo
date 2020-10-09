@@ -508,14 +508,14 @@ class Assimulo_prepare(object):
         for el in ext_list:
             #Debug
             if self.debug_flag:
-                if self.sundials_with_msvc:
+                if self.with_SUNDIALS and self.sundials_with_msvc:
                     el.extra_compile_args = ["/DEBUG"]
                     el.extra_link_args = ["/DEBUG"]
                 else:
                     el.extra_compile_args = ["-g","-fno-strict-aliasing"]
                     el.extra_link_args = ["-g"]
             else:
-                if self.sundials_with_msvc:
+                if self.with_SUNDIALS and self.sundials_with_msvc:
                     el.extra_compile_args = ["/O2"]
                 else:
                     el.extra_compile_args = ["-O2", "-fno-strict-aliasing"]
